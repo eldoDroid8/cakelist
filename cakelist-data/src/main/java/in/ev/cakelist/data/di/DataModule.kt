@@ -3,6 +3,8 @@ package `in`.ev.cakelist.data.di
 import `in`.ev.cakelist.data.datasource.remote.CakeListRemoteDataSource
 import `in`.ev.cakelist.data.model.ErrorEntity
 import `in`.ev.cakelist.data.network.api.CakeListApi
+import `in`.ev.cakelist.data.repository.CakeRepositoryImpl
+import `in`.ev.cakelist.domain.repository.CakeRepository
 import com.squareup.moshi.JsonAdapter
 import dagger.Module
 import dagger.Provides
@@ -25,15 +27,15 @@ object DataSourceModule {
     }
 }
 
-/*@Module
+@Module
 @InstallIn(SingletonComponent::class)
 object RepoModule {
     @Provides
     @Singleton
     fun provideRepoImpl(
         dataSource: CakeListRemoteDataSource
-    ): SubRedditRepository {
-        return RemoteRepoImpl(dataSource)
+    ): CakeRepository {
+        return CakeRepositoryImpl(dataSource)
     }
 
-}*/
+}

@@ -39,6 +39,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':cakelist-domain')
+    implementation project(path: ':cakelist-data')
 
     implementation kotlin.jetbrainsKotlinStdLib
     implementation kotlin.coreKtx
