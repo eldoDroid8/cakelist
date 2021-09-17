@@ -1,0 +1,4 @@
+include ':cakelist-domain'
+include ':cakelist-data'
+include ':app'
+rootProject.name = "cakelist"

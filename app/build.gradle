@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "in.ev.cakelist"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation kotlin.jetbrainsKotlinStdLib
+    implementation kotlin.coreKtx
+
+    implementation androidx.navigationFragement
+    implementation androidx.navigationUi
+    implementation androidx.appcompatLib
+    implementation androidx.recyclerview
+    implementation androidx.constraintLayout
+    implementation androidx.cardView
+
+    implementation google.material
+
+    implementation hilt.hiltAndroid
+    kapt hilt.kaptHiltAndroidCompiler
+
+
+
+    implementation network.retrofit
+    implementation network.retrofitMoshi
+    implementation network.moshi
+    implementation network.moshiKotlin
+    kapt network.moshiCodeGen
+    implementation networkClient.interceptor
+    implementation networkClient.okhttp
+
+    implementation others.glide
+
+    testImplementation  junit.testImpl
+    testImplementation  junit.androidxTestImpl
+    testImplementation  junit.androidxEspresso
+    testImplementation  junit.kotlinCoroutineTest
+    testImplementation  junit.mockk
+
+}
