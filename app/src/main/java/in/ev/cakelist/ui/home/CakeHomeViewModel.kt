@@ -20,50 +20,55 @@ class CakeHomeViewModel @Inject constructor(
     private val homeNavEvents = MutableLiveData<HomeNavigation>()
     val stateHomeEvents: LiveData<HomeNavigation> = homeNavEvents
     private val cakeList = MutableLiveData<List<Cake>>()
+    val isRefreshing = MutableLiveData(false)
     val observableList: LiveData<List<Cake>> = this.cakeList
-    val showShimmerAnimation = MutableLiveData(true)
     val itemSelected: RecyclerviewItemSelected
         get() = this::cakeSelected
-    private val characterLiveData: MutableLiveData<ViewState<List<Cake>>> = MutableLiveData()
-    val stateNav: LiveData<ViewState<List<Cake>>> = characterLiveData
+    private val cakeListLiveData: MutableLiveData<ViewState<List<Cake>>> = MutableLiveData()
+    val stateNav: LiveData<ViewState<List<Cake>>> = cakeListLiveData
 
     init {
         getCakeList()
     }
 
-    fun getCakeList() {
+    private fun getCakeList() {
         viewModelScope.launch{
             getCakeListUsecase.execute().collect { response ->
                 when (response) {
                     is Response.Loading -> {
-                        adjustShimmerVisibility(response.loading)
+                        setRefreshing(true)
                     }
                     is Response.ApiCallSuccess -> {
+                        setRefreshing(false)
                         response.data?.let {
-                            characterLiveData.value = ViewState.Success(it)
                             cakeList.apply {
                                 value = it
                             }
                         }
                     }
                     is Response.ApiCallError -> {
-                        characterLiveData.value = ViewState.Failure(response.error)
+                        setRefreshing(false)
+                        cakeListLiveData.value = ViewState.Failure(response.error)
                     }
                 }
             }
         }
     }
 
+    fun refreshList() {
+        setRefreshing(true)
+        getCakeList()
+    }
 
-    private fun adjustShimmerVisibility(visibility: Boolean) {
-        showShimmerAnimation.value = visibility
+    private fun setRefreshing(refresh: Boolean) {
+        isRefreshing.value = refresh
     }
 
     private fun cakeSelected(cake: Cake) {
-        homeNavEvents.value = HomeNavigation.openDescriptionDialpg(cake)
+        homeNavEvents.value = HomeNavigation.OpenDescriptionDialpg(cake)
     }
 }
 
 sealed class HomeNavigation {
-    data class openDescriptionDialpg(val cake: Cake) : HomeNavigation()
+    data class OpenDescriptionDialpg(val cake: Cake) : HomeNavigation()
 }

@@ -18,6 +18,7 @@ ext {
     def androidxTestImplVersion = "1.1.2"
     def androidxespressoVersion = "3.3.0"
     def mockkVersion = "1.11.0"
+    def archCoreTestVersion = "2.1.0"
 
     def retrofit = "2.9.0"
     def okhttpVersion = "4.8.0"
@@ -27,7 +28,7 @@ ext {
     def hilt_version = "2.38.1"
 
     def glideVersion = "4.12.0"
-    def shimmerVersion ="0.5.0"
+
     classPaths = [
             gradlePath: "com.android.tools.build:gradle:$android_gradle_plugin",
             kotlinGradlePath: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
@@ -88,13 +89,13 @@ ext {
             mockk :"io.mockk:mockk:$mockkVersion",
             androidxTestImpl : "androidx.test.ext:junit:$androidxTestImplVersion",
             androidxEspresso : "androidx.test.espresso:espresso-core:$androidxespressoVersion",
-            kotlinCoroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutineVersion"
+            kotlinCoroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutineVersion",
+            archCoreTest: "androidx.arch.core:core-testing:$archCoreTestVersion"
 
     ]
 
     others = [
             glide: "com.github.bumptech.glide:glide:$glideVersion",
-            glidekapt:"com.github.bumptech.glide:compiler:$glideVersion",
-            shimmer: "com.facebook.shimmer:shimmer:$shimmerVersion",
+            glidekapt:"com.github.bumptech.glide:compiler:$glideVersion"
     ]
 }

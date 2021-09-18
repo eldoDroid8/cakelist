@@ -56,7 +56,7 @@ dependencies {
     implementation google.material
 
     implementation hilt.hiltAndroid
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     kapt hilt.kaptHiltAndroidCompiler
 
 
@@ -72,10 +72,12 @@ dependencies {
     implementation others.glide
     kapt others.glidekapt
 
+
     testImplementation  junit.testImpl
     testImplementation  junit.androidxTestImpl
     testImplementation  junit.androidxEspresso
     testImplementation  junit.kotlinCoroutineTest
     testImplementation  junit.mockk
+    testImplementation junit.archCoreTest
 
 }

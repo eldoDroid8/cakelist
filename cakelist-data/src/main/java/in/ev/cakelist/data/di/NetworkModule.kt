@@ -73,7 +73,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideSubRedditApiService(retrofit: Retrofit): CakeListApi {
+    fun provideCakeListApiService(retrofit: Retrofit): CakeListApi {
         return retrofit.create(CakeListApi::class.java)
     }
 

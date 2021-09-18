@@ -8,7 +8,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.IOException
 import java.net.SocketException
+import java.net.UnknownHostException
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 abstract class BaseDataSource constructor(
         val retrofit: Retrofit, private val moshiErrorAdapter:
         JsonAdapter<ErrorEntity>
@@ -24,7 +26,10 @@ abstract class BaseDataSource constructor(
                     val errorResponse: ErrorEntity = parseError(result)
                     EntityResultWrapper.Error(errorResponse)
                 }
-            } catch (e: IOException) {
+            } catch (e: UnknownHostException) {
+                EntityResultWrapper.Error(ErrorEntity(status_message = "Please check your network connection"))
+            }
+            catch (e: IOException) {
                 EntityResultWrapper.Error(ErrorEntity(status_message = "Unknown error"))
             } catch (e: SocketException) {
                 EntityResultWrapper.Error(ErrorEntity(status_message = "Please check your network connection"))

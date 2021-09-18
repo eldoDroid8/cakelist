@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/cakeListHomeFragment"
         android:name="in.ev.cakelist.ui.home.CakeHomeFragment"
-        android:label="fragment_bad_char_home"
+        android:label="fragment_cake_list_home"
         tools:layout="@layout/fragment_cake_home" >
     </fragment>
 

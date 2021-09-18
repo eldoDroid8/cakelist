@@ -20,7 +20,8 @@ class CakeRepositoryImpl @Inject constructor(private val dataSource: CakeListRem
             emit(Response.Loading(true))
             when(val result = dataSource.getCakeList()) {
                 is EntityResultWrapper.Success -> {
-                    val cakeList = result.data?.map { toDomain(it) }
+
+                    val cakeList = result.data?.map { toDomain(it) }.distinctBy { it.title }.sortedBy { it.title }
                     emit(Response.Loading(false))
                     emit(Response.ApiCallSuccess(cakeList))
                 }
