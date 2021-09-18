@@ -2,6 +2,7 @@ ext {
     def android_gradle_plugin = '4.1.2'
     def appCompat = "1.2.0"
     def recyclerView = "1.1.0"
+    def swipeRefreshLayoutVersion = "1.1.0"
     def cardViewVersion = "1.0.0"
     def constraintLayoutVersion = "2.0.4"
     def navVersion = "2.3.2"
@@ -25,7 +26,7 @@ ext {
 
     def hilt_version = "2.38.1"
 
-    def glideVersion = "4.11.0"
+    def glideVersion = "4.12.0"
     def shimmerVersion ="0.5.0"
     classPaths = [
             gradlePath: "com.android.tools.build:gradle:$android_gradle_plugin",
@@ -37,6 +38,7 @@ ext {
     androidx = [
             appcompatLib   :    "androidx.appcompat:appcompat:$appCompat",
             recyclerview    :   "androidx.recyclerview:recyclerview:$recyclerView",
+            swipeRefreshView: "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion",
             constraintLayout :  "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
             navigationFragement: "androidx.navigation:navigation-fragment-ktx:$navVersion",
             navigationUi:        "androidx.navigation:navigation-ui-ktx:$navVersion",

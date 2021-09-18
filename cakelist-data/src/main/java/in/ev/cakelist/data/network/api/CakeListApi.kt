@@ -5,7 +5,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface CakeListApi {
-    @GET("characters")
+    @GET("waracle_cake-android-client")
     suspend fun getCakeList(): Response<List<CakeItem>>
 
 }

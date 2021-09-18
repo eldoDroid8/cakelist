@@ -51,10 +51,12 @@ dependencies {
     implementation androidx.recyclerview
     implementation androidx.constraintLayout
     implementation androidx.cardView
+    implementation androidx.swipeRefreshView
 
     implementation google.material
 
     implementation hilt.hiltAndroid
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt hilt.kaptHiltAndroidCompiler
 
 
@@ -68,6 +70,7 @@ dependencies {
     implementation networkClient.okhttp
 
     implementation others.glide
+    kapt others.glidekapt
 
     testImplementation  junit.testImpl
     testImplementation  junit.androidxTestImpl
