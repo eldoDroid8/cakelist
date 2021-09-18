@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="bottomSheetViewModel"
+            type="in.ev.cakelist.ui.home.BottomSheetViewModel" />
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_default"
+    android:elevation="@dimen/elevation"
+    app:cardCornerRadius="@dimen/corner">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_title"
+                style="@style/GridLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_extra_tiny"
+                android:layout_marginBottom="@dimen/spacing_extra_tiny"
+                android:gravity="center"
+                android:text="@{bottomSheetViewModel.title}"
+                android:paddingStart="@dimen/spacing_extra_tiny"
+                android:paddingEnd="@dimen/spacing_extra_tiny"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Vendido por: Uzias" />
+
+
+            <TextView
+                android:id="@+id/item_desc"
+                style="@style/TextStyleBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_extra_tiny"
+                android:layout_marginBottom="@dimen/spacing_extra_tiny"
+                android:paddingStart="@dimen/spacing_extra_tiny"
+                android:paddingEnd="@dimen/spacing_extra_tiny"
+                android:text="@{bottomSheetViewModel.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_title"
+                tools:text="adff sfsdfd adfadfdfwd dvdsf" />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ok"
+                android:layout_marginTop="@dimen/spacing_mini"
+                android:onClick="@{()->bottomSheetViewModel.onOkClick()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_desc"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>

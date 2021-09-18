@@ -60,11 +60,10 @@ class CakeHomeViewModel @Inject constructor(
     }
 
     private fun cakeSelected(cake: Cake) {
-        homeNavEvents.value = HomeNavigation.NavigateToDetail(cake)
+        homeNavEvents.value = HomeNavigation.openDescriptionDialpg(cake)
     }
 }
 
 sealed class HomeNavigation {
-    data class NavigateToDetail(val cake: Cake) : HomeNavigation()
-    object OpenFilterDialog : HomeNavigation()
+    data class openDescriptionDialpg(val cake: Cake) : HomeNavigation()
 }
