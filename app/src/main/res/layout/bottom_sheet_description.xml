@@ -9,16 +9,11 @@
             type="in.ev.cakelist.ui.home.BottomSheetViewModel" />
     </data>
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_default"
-    android:elevation="@dimen/elevation"
-    app:cardCornerRadius="@dimen/corner">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:background="@color/white">
 
             <TextView
                 android:id="@+id/item_title"
@@ -56,17 +51,20 @@
 
 
             <Button
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/button_height"
                 android:text="@string/ok"
                 android:layout_marginTop="@dimen/spacing_mini"
+                android:layout_marginBottom="@dimen/spacing_tiny"
+                android:background="@color/red_dark"
                 android:onClick="@{()->bottomSheetViewModel.onOkClick()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_desc"/>
+                app:layout_constraintTop_toBottomOf="@+id/item_desc"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
 </layout>

@@ -21,7 +21,9 @@
 
     <dimen name="font_size_small">14sp</dimen>
 
-    <dimen name="layout_dimension_extra_large">400dp</dimen>
+    <dimen name="button_height">30dp</dimen>
+
+
 
 
 </resources>

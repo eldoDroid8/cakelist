@@ -83,6 +83,7 @@ class CakeHomeFragment : Fragment() {
                 null,
                 false)
             bottomSheetDialog.setContentView(bindingSheet.root)
+            bottomSheetDialog.behavior.peekHeight = 300
             val bottomSheetViewModel = BottomSheetViewModel(cake, ::onOkClick)
             bindingSheet.setVariable(BR.bottomSheetViewModel, bottomSheetViewModel )
             bottomSheetDialog.show()
